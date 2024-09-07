@@ -19,3 +19,7 @@ const menuSchema = new mongoose.Schema({
     },
     timestamps: true,
 });
+
+const Menu = mongoose.model('Menu', menuSchema);  //Creating Menu model from the schema.
+
+export default Menu;
