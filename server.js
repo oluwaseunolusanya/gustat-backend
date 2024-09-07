@@ -32,8 +32,15 @@ app.post("/api/menu", async (req, res) => {
 });
 
 app.delete("/api/menu/:id", async(req, res) => {
-    const { id } = req.params;
-    console.log("id:", id);
+    const { id } = req.params; 
+
+    try {
+        await Menu.findByIdAndDelete(id);
+        res.status(200).json({success: true, message: "Menu deleted."})
+    } catch (error) {
+        res.status(404).json({success: false, message: "Menu not found."})
+    }
+
 });
 
 app.listen(5000, () => {
