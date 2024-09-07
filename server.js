@@ -29,8 +29,6 @@ app.post("/api/menu", async (req, res) => {
         console.error("Error in creating menu:", error.message);
         res.status(500).json({success: false, message: "Server Error"});
     };
-    
-
 });
 
 app.listen(5000, () => {
