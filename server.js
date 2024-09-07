@@ -7,6 +7,9 @@ dotenv.config();
 
 const app = express();
 
+// Middleware to enable collection of json data in req.body
+app.use(express.json());
+
 app.post("/api/menu", async (req, res) => {
     // Bind user request data to an object
     const menu = req.body;  
