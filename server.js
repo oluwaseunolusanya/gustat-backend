@@ -50,7 +50,7 @@ app.put("/api/menu/:id", async (req, res) => {
     // Handle invalid item id in the menu collection
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({success: false, message: "Invalid item id"});
-    }
+    };
 
     try {
         const updatedItem = await Menu.findByIdAndUpdate(id, menu, {new:true});
