@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import Menu from "./models/menu.model.js";
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -37,6 +38,24 @@ app.post("/api/menu", async (req, res) => {
         res.status(201).json({success: true, data: newMenu});
     } catch (error) {
         console.error("Error in creating menu:", error.message);
+        res.status(500).json({success: false, message: "Server Error"});
+    };
+});
+
+app.put("/api/menu/:id", async (req, res) => {
+    const {id} = req.params;
+
+    const menu = req.body;
+
+    // Handle invalid item id in the menu collection
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({success: false, message: "Invalid item id"});
+    }
+
+    try {
+        const updatedItem = await Menu.findByIdAndUpdate(id, menu, {new:true});
+        res.status(200).json({success: true, data: updatedItem});
+    } catch (error) {
         res.status(500).json({success: false, message: "Server Error"});
     };
 });
