@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 
-app.post("/menu", async (req, res) => {
+app.post("/api/menu", async (req, res) => {
     // Bind user request data to an object
     const menu = req.body;  
 
