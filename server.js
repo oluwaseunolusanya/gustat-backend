@@ -31,6 +31,11 @@ app.post("/api/menu", async (req, res) => {
     };
 });
 
+app.delete("/api/menu/:id", async(req, res) => {
+    const { id } = req.params;
+    console.log("id:", id);
+});
+
 app.listen(5000, () => {
     connectDB();
     console.log("Server started at http://localhost:5000");
