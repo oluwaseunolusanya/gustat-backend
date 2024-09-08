@@ -9,6 +9,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Testing a get endpoints
 app.get("/test", async (req: Request, res: Response) => {
     res.json({ message: "Hello" });
+});
+
+app.listen(5000, () => {
+    console.log("Server started on localhost: 5000");
 });
