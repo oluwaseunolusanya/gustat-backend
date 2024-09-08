@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "./script/index.ts",
+  "main": "./src/server.ts",
   "scripts": {
     "test": "nodemon"
   },
