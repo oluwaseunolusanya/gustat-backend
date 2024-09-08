@@ -53,11 +53,16 @@ export const updateMenuItem = async (req, res) => {
 export const deleteMenuItem = async(req, res) => {
     const { id } = req.params; 
 
+    // Handle invalid item id in the menu collection
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({success: false, message: "Invalid item id"});
+    };
+
     try {
         await Menu.findByIdAndDelete(id);
         res.status(200).json({success: true, message: "Menu deleted."})
     } catch (error) {
-        res.status(404).json({success: false, message: "Menu not found."})
+        res.status(500).json({success: false, message: "Server Error."})
     }
 
 };
