@@ -1,8 +1,10 @@
 import express from "express";
+import mongoose from "mongoose";
+import Menu from "./models/menu.model.js";
 
 const router = express.Router();
 
-router.get("/api/menu", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const menu = await Menu.find({});
         res.status(200).json({success: true, data: menu});
@@ -12,7 +14,7 @@ router.get("/api/menu", async (req, res) => {
     };
 });
 
-router.post("/api/menu", async (req, res) => {
+router.post("/", async (req, res) => {
     // Bind user request data to an object
     const menu = req.body;  
 
@@ -33,7 +35,7 @@ router.post("/api/menu", async (req, res) => {
     };
 });
 
-router.put("/api/menu/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
     const {id} = req.params;
 
     const menu = req.body;
@@ -51,7 +53,7 @@ router.put("/api/menu/:id", async (req, res) => {
     };
 });
 
-router.delete("/api/menu/:id", async(req, res) => {
+router.delete("/:id", async(req, res) => {
     const { id } = req.params; 
 
     try {
