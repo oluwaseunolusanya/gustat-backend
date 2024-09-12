@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { auth } from "express-oauth2-jwt-bearer";
 import jwt from "jsonwebtoken";
+import User from "../models/user";
 
 export const jwtCheck = auth({
     audience: process.env.AUTH0_AUDIENCE,
@@ -24,6 +25,10 @@ export const jwtParse = async(
 
     try {
         const decoded = jwt.decode(token) as jwt.JwtPayload;
+        const auth0Id = decoded.sub;
+
+        const user = await User.findOne({ auth0Id });
+        
     } catch (error) {
         return res.sendStatus(401);
     }
