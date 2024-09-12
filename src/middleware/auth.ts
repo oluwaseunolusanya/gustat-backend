@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { auth } from "express-oauth2-jwt-bearer";
+import jwt from "jsonwebtoken";
 
 export const jwtCheck = auth({
     audience: process.env.AUTH0_AUDIENCE,
@@ -20,4 +21,10 @@ export const jwtParse = async(
 
     // Get token from authorisation header
     const token = authorization.split(" ") [1];
+
+    try {
+        const decoded = jwt.decode(token) as jwt.JwtPayload;
+    } catch (error) {
+        return res.sendStatus(401);
+    }
 };
