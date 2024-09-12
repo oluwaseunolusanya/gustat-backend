@@ -16,5 +16,8 @@ export const jwtParse = async(
 
     if(!authorization || !authorization.startsWith("Bearer ")){
         return res.sendStatus(401);
-    }
+    };
+
+    // Get token from authorisation header
+    const token = authorization.split(" ") [1];
 };
