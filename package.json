@@ -4,7 +4,8 @@
   "main": "./src/server.ts",
   "scripts": {
     "dev": "nodemon",
-    "build": "npm install && npx tsc"
+    "build": "npm install && npx tsc",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
