@@ -16,3 +16,6 @@ const restaurantSchema = new mongoose.Schema({
     imageUrl: { type: String, required: true },
     lastUpdated: { type: Date, required: true },
 });
+
+const Restaurant = mongoose.model("Restaurant", restaurantSchema);
+export default Restaurant;
