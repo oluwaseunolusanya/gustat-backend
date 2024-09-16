@@ -12,6 +12,8 @@ const createMyRestaurant = async (req: Request, res: Response) => {
         };
 
         const image = req.file as Express.Multer.File;
+        const base64Image = Buffer.from(image.buffer).toString("base64");
+        const dataURI = `data:${image.mimetype};base64,${base64Image}`;
 
 
     } catch (error) {
