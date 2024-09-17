@@ -1,18 +1,21 @@
 import { Request, Response, NextFunction } from "express";
 import { body, validationResult } from "express-validator";
 
+// Middleware to handle validation errors
 const handleValidationErrors = async (
     req: Request, 
     res: Response, 
     next: NextFunction
 ) => {
+    // Chel for validation errors in request
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() })
     };
-    next();
+    next(); // Proceed to the next middleware or route handler
 };
 
+// Validation rules for user-related requests
 export const validateMyUserRequest = [
     body("name")
         .isString()
@@ -30,5 +33,5 @@ export const validateMyUserRequest = [
         .isString()
         .notEmpty()
         .withMessage("Country must be a string"),
-    handleValidationErrors,
+    handleValidationErrors, // Attach validation error handler
 ];
