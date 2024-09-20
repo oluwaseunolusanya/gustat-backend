@@ -35,6 +35,7 @@ Backend application for Gustat Food ordering app. It is built with Node.js, Expr
 - **Auth0**: JWT-based authentication for secure user access.
 - **Express Validator**: Middleware for validating request data.
 - **Multer**: Middleware for handling file uploads.
+- **Render**: Deployed to Render at [https://gustat-backend.onrender.com](https://gustat-backend.onrender.com/)
 
 ---
 
