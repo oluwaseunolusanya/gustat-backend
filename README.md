@@ -1,5 +1,5 @@
 # Backend App
-Backend application for Gustat Sweets and Savouries Food app. It is built with Node.js, Express, and MongoDB, designed to manage user accounts and restaurant listings. It also supports image uploads for restaurant profiles via Cloudinary and user authentication using Auth0.
+Backend application for Gustat Food ordering app. It is built with Node.js, Express, and MongoDB, designed to manage user accounts and restaurant listings. It also supports image uploads for restaurant profiles via Cloudinary and user authentication using Auth0.
 
 ## **Table of Contents**
 
