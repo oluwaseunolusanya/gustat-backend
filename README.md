@@ -76,6 +76,9 @@ CLOUDINARY_API_SECRET=<your-cloudinary-api-secret>
 # Auth0 configuration for authentication
 AUTH0_AUDIENCE=<your-auth0-audience>
 AUTH0_ISSUER_BASE_URL=<your-auth0-issuer-base-url>
+
+# Local host port
+PORT=5000
 ```
 
 > Ensure that you have a valid MongoDB instance, Cloudinary account, and Auth0 credentials to use these services.
