@@ -1,6 +1,7 @@
 import express from "express";
 import multer from "multer";
 import MyRestaurantController from "../controllers/MyRestaurantController";
+import { jwtCheck, jwtParse } from "../middleware/auth";
 
 const router = express.Router();
 
@@ -14,7 +15,10 @@ const upload = multer({
 });
 
 // Route to create new restaurant, include file upload handling
-router.post("/", 
+router.post(
+    "/", 
+    jwtCheck,
+    jwtParse,
     upload.single("imageFile"), 
     MyRestaurantController.createMyRestaurant
 );
