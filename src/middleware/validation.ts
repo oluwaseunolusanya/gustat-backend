@@ -7,7 +7,7 @@ const handleValidationErrors = async (
     res: Response, 
     next: NextFunction
 ) => {
-    // Chel for validation errors in request
+    // Check for validation errors in request
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() })
