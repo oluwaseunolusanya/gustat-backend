@@ -28,4 +28,14 @@ router.post(
     MyRestaurantController.createMyRestaurant
 );
 
+// Route to update restaurant data
+router.put(
+    "/",
+    upload.single("imageFile"), 
+    validateMyRestaurantRequest,
+    jwtCheck,
+    jwtParse,
+    MyRestaurantController.updateMyRestaurant
+);
+
 export default router;
